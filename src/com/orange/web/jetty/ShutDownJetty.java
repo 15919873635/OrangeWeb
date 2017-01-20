@@ -14,6 +14,8 @@ import java.net.URL;
 /**
  *
  * @author lining
+ * 关闭Jetty服务器
+ * 使用http请求
  */
 public class ShutDownJetty {
     public static void main(String[] args) {
