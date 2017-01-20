@@ -6,12 +6,13 @@
 package com.orange.web.test.web;
 
 import com.orange.web.annotation.ControllerComponent;
+import com.orange.web.annotation.RequestMode;
 
 /**
  *
  * @author lining
  */
-@ControllerComponent(type = RequestMode.)
+@ControllerComponent(type = RequestMode.REST)
 public class MyHelloController {
     
 }
