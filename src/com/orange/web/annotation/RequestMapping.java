@@ -21,4 +21,5 @@ import java.lang.annotation.Target;
 public @interface RequestMapping {
     String name() default "";
     String path() default "";
+    RequestMethod[] method() default {};
 }
