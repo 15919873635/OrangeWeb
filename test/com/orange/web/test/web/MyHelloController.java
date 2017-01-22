@@ -6,6 +6,9 @@
 package com.orange.web.test.web;
 
 import com.orange.web.annotation.ControllerComponent;
+import com.orange.web.annotation.PathVariable;
+import com.orange.web.annotation.RequestMapping;
+import com.orange.web.annotation.RequestMethod;
 import com.orange.web.annotation.RequestMode;
 
 /**
@@ -14,5 +17,7 @@ import com.orange.web.annotation.RequestMode;
  */
 @ControllerComponent(type = RequestMode.REST)
 public class MyHelloController {
-    
+    @RequestMapping(name = "userLogin",path = "/userName/{hello}/{mytest}/{get}",method = {RequestMethod.GET,RequestMethod.POST})
+    public void userLogin(@PathVariable(name = "hello") String hello){
+    }
 }

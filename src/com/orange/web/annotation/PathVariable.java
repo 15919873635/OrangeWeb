@@ -17,9 +17,7 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE,ElementType.METHOD})
-public @interface RequestMapping {
+@Target(ElementType.PARAMETER)
+public @interface PathVariable {
     String name() default "";
-    String path() default "";
-    RequestMethod[] method() default {};
 }
