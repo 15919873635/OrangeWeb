@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE,ElementType.METHOD})
 public @interface APIDocument {
-    String name();
+    String name() default "";
     /**
      * api接口标题
      * @return 

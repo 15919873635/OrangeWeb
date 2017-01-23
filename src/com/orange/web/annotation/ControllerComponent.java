@@ -19,5 +19,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface ControllerComponent {
+    String name();
     RequestMode type() default RequestMode.REST;
 }
