@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  *
  * @author Administrator
  */
-@Target({ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Target({ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Autowired {

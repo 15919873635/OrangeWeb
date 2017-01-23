@@ -9,6 +9,10 @@ package com.orange.web.parser;
  *
  * @author lining
  */
-public class RequestMappingParser {
-    
+public class RequestMappingParser extends AbstractAnnotationParser{
+
+    @Override
+    public void parse() {
+        
+    }
 }
