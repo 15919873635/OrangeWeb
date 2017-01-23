@@ -9,7 +9,7 @@ package com.orange.web.parser;
  *
  * @author lining
  */
-public class APIDocumentParser extends AbstractAnnotationParser{
+public class LoggingComponentParser extends AbstractAnnotationParser{
 
     @Override
     public void parse() {
