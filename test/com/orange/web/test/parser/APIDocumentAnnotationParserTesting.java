@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.parser;
+package com.orange.web.test.parser;
 
 /**
  *
  * @author lining
  */
-public class APIDocumentParser extends AbstractAnnotationParser{
+public class APIDocumentAnnotationParserTesting {
     
-    @Override
-    public void parse() {
-        
-    }
 }
