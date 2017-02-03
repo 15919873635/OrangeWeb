@@ -5,11 +5,16 @@
  */
 package com.orange.web.exceptions;
 
+import com.orange.web.constants.NonOverLappingConstant;
+
 /**
  *
  * @author lining
  */
 public class NonOverLappingException extends AbstractWebException{
+    public NonOverLappingException() {
+        super(NonOverLappingConstant.COMPONENT_NON_OVER_LAPPING);
+    }
     
     public NonOverLappingException(String message) {
         super(message);

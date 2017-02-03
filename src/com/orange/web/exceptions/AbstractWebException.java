@@ -20,5 +20,4 @@ public class AbstractWebException extends Throwable{
     public AbstractWebException(String message,Throwable cause){
         super(message, cause);
     }
-    
 }

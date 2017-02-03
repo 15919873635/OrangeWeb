@@ -10,5 +10,6 @@ package com.orange.web.constants;
  * @author lining
  */
 public class NonOverLappingConstant {
+    public final static String COMPONENT_NON_OVER_LAPPING = "components can not over lapping,please chick it";
     public final static String SERVICE_DAO_COMPONENT_NON_OVER_LAPPING = "ServiceComponent And DaoComponent can not over lapping in ${target}";
 }

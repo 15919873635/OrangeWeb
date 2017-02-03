@@ -22,7 +22,7 @@ public class StringUtil {
      * @param targetStr
      * @return 
      */
-    public static boolean isNumbic(String targetStr){
+    public static boolean isNumberic(String targetStr){
         return targetStr.matches("^[0-9]+(.[0-9]*)?$");
     }
 }
