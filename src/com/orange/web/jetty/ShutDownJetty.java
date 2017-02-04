@@ -31,7 +31,7 @@ public class ShutDownJetty {
             connection.setRequestMethod("POST");
             connection.getResponseCode();
         } catch (SocketException e) {
-            // Okay - the server is not running
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
