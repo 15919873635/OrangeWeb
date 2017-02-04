@@ -7,6 +7,7 @@ package com.orange.web.test.web;
 
 import com.orange.web.annotation.APIDocument;
 import com.orange.web.annotation.ControllerComponent;
+import com.orange.web.annotation.LoggingComponent;
 import com.orange.web.annotation.PathVariable;
 import com.orange.web.annotation.RequestMapping;
 import com.orange.web.annotation.RequestMethod;
@@ -16,6 +17,8 @@ import com.orange.web.annotation.RequestMode;
  *
  * @author lining
  */
+@LoggingComponent()
+@APIDocument(name = "helloController",title = "",info = "")
 @ControllerComponent(name = "helloController", type = RequestMode.REST)
 public class MyHelloController {
     @APIDocument(name = "",title = "",info = "")
