@@ -35,18 +35,24 @@ public abstract class AbstractLogging {
         }
     }
     protected void writeLoggingFile(String message) throws IOException{
-        if(loggingFile != null && loggingFile.exists()){
-            synchronized(loggingFile){
+        if(loggingFile != null){
+            if(!loggingFile.exists()){
+                loggingFile.createNewFile();
+                loggingFile.setReadable(true);
+                loggingFile.setWritable(true);
+            }else{
                 if(!loggingFile.canRead())
                     loggingFile.setReadable(true);
                 if(!loggingFile.canWrite())
                     loggingFile.setWritable(true);
+            }
+            synchronized(loggingFile){
                 // 打开一个随机访问文件流，按读写方式
                 RandomAccessFile randomFile = new RandomAccessFile(loggingFile, "rw");
                 // 文件长度，字节数
                 long fileLength = randomFile.length();
                 if(maxFileSize > 0 && maxFileSize < (fileLength + message.length())){
-                    
+
                 }
                 // 将写文件指针移到文件尾。
                 randomFile.seek(fileLength);
