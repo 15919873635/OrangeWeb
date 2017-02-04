@@ -17,8 +17,7 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Component
-public @interface DaoComponent {
-    String name();
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface Component {
+    
 }

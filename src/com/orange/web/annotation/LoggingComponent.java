@@ -18,6 +18,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Component
 public @interface LoggingComponent {
     LoggingLevel[] level() default {LoggingLevel.INFO};
 }
