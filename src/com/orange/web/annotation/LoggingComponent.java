@@ -22,4 +22,5 @@ public @interface LoggingComponent {
     LoggingLevel[] level() default {LoggingLevel.INFO};
     String filePath() default "";
     String format() default "";
+    long maxFileSize() default 0;
 }

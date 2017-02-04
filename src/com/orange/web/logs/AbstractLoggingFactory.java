@@ -5,18 +5,32 @@
  */
 package com.orange.web.logs;
 
+import com.orange.web.annotation.LoggingComponent;
+import com.orange.web.util.StringUtil;
+import java.io.File;
+
 /**
  *
  * @author lining
  */
-public abstract class AbstractLoggingFactory implements LoggingFactory{
+public class AbstractLoggingFactory implements DefaultLoggingFactory{
+    
     @Override
-    public Logging getLogging(){
-        return null;
+    public Logging getLogging(Class<?> classzz){
+        Logging log = new Logging();
+        LoggingComponent loggingAnnotation = classzz.getAnnotation(LoggingComponent.class);
+        if(loggingAnnotation != null){
+            if(!StringUtil.isEmpty(loggingAnnotation.filePath())){
+                log.loggingFile = new File(loggingAnnotation.filePath());
+                log.loggingFormat = loggingAnnotation.format();
+                log.loggingLevels = loggingAnnotation.level();
+                log.maxFileSize = loggingAnnotation.maxFileSize() >= 0 ? loggingAnnotation.maxFileSize() : 0;
+            }
+        }
+        return log;
     }
-    public abstract void debug(String debugString);
-    public abstract void info(String infoString);
-    public abstract void warn(String warnString);
-    public abstract void error(String errorString);
-    public abstract void fatal(String fatalString);
+    
+    public static AbstractLoggingFactory builder(){
+        return new AbstractLoggingFactory();
+    }
 }
