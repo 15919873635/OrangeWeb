@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Component
-public @interface LoggingComponent {
+public @interface Logging {
     LoggingLevel[] level() default {LoggingLevel.INFO};
+    String filePath() default "";
 }
