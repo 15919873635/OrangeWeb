@@ -11,13 +11,13 @@ import com.orange.web.annotation.PathVariable;
 import com.orange.web.annotation.RequestMapping;
 import com.orange.web.annotation.RequestMethod;
 import com.orange.web.annotation.RequestMode;
-import com.orange.web.annotation.Logging;
+import com.orange.web.annotation.LoggingComponent;
 
 /**
  *
  * @author lining
  */
-@Logging()
+@LoggingComponent()
 @APIDocument(name = "helloController",title = "",info = "")
 @ControllerComponent(name = "helloController", type = RequestMode.REST)
 public class MyHelloController {
