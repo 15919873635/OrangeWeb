@@ -12,7 +12,7 @@ import java.util.List;
  * @author lining
  * @param <T>
  */
-public abstract class AbstractDataTemplate<T extends DBMapperModel> {
+public abstract class AbstractDataSourceTemplate<T extends DBMapperModel> {
     /**
     * 数据库新增操作
     * @param t

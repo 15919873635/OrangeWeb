@@ -12,7 +12,7 @@ import java.util.List;
  * @author lining
  * @param <T>
  */
-public class DataSourceTemplate<T extends DBMapperModel> extends AbstractDataTemplate<T>{
+public class DataSourceTemplate<T extends DBMapperModel> extends AbstractDataSourceTemplate<T>{
 
     @Override
     protected boolean saveData(T t) {
