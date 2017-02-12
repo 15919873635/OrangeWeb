@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lining
  */
-public abstract class AbstractInterceptor implements BasicDefaultInterceptor{
+public abstract class AbstractInterceptor implements BasicInterceptor{
     public abstract boolean preHandle(HttpServletRequest request,  
             HttpServletResponse response, Object handler) throws Exception;
     public abstract void postHandle(HttpServletRequest request,  
