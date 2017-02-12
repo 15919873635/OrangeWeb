@@ -19,6 +19,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface TableMapper {
+    /**
+     * 数据库名称，可以为空，如果为空则默认使用数据库连接池(c3p0)配置中的jdbcurl的数据库名称
+     * @return 
+     */
     String dbname() default "";
     String table();
 }

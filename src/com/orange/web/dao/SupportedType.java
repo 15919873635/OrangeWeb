@@ -10,7 +10,16 @@ package com.orange.web.dao;
  * @author lining
  */
 public enum SupportedType {
+    /**
+     * 目前和计划支持的数据库类型
+     */
     MYSQL,ORACLE,MANGODB,
+    /**
+     * 查询字段的排序
+     */
     ASC,DESC,
+    /**
+     * DB操作的类型
+     */
     SAVE,DELETE,UPDATE,QUERY;
 }

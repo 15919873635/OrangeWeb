@@ -8,7 +8,7 @@ package com.orange.web.dao;
 import java.io.Serializable;
 
 /**
- *
+ * 用于TableMapper所标注的类继承
  * @author lining
  */
 public class MapperObject implements Serializable{
