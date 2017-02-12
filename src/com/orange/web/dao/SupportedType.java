@@ -5,12 +5,12 @@
  */
 package com.orange.web.dao;
 
-import java.io.Serializable;
-
 /**
  *
  * @author lining
  */
-public class DBMapperModel implements Serializable{
-    
+public enum SupportedType {
+    MYSQL,ORACLE,MANGODB,
+    ASC,DESC,
+    SAVE,DELETE,UPDATE,QUERY;
 }

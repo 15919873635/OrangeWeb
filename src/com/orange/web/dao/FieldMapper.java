@@ -9,8 +9,8 @@ package com.orange.web.dao;
  *
  * @author lining
  */
-public @interface DBFieldMapper {
+public @interface FieldMapper {
     String field();
-    DBQueryOrder orderby() default DBQueryOrder.ASC;
+    SupportedType orderby() default SupportedType.ASC;
     int orderindex() default 0;
 }
