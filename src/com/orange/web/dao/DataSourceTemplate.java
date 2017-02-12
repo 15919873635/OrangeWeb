@@ -5,6 +5,8 @@
  */
 package com.orange.web.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 /**
@@ -15,28 +17,28 @@ import java.util.List;
 public class DataSourceTemplate<T extends MapperObject> extends AbstractDataSourceTemplate<T>{
 
     @Override
-    protected boolean save(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean save(T t) {
+        return true;
     }
 
     @Override
-    protected boolean update(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean update(T t) {
+        return true;
     }
 
     @Override
-    protected boolean delete(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean delete(T t) {
+        return true;
     }
 
     @Override
-    protected List<T> queryList(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<T> queryList(T t) {
+        return null;
     }
 
     @Override
-    protected T query(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T query(T t) {
+        return null;
     }
     
 }
