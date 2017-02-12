@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.dao;
+package com.orange.web.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
