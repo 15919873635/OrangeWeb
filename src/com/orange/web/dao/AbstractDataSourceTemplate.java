@@ -18,30 +18,30 @@ public abstract class AbstractDataSourceTemplate<T extends MapperObject> {
     * @param t
     * @return
     */
-    protected abstract boolean saveData(T t);
+    protected abstract boolean save(T t);
     /**
      * 数据库更新操作
      * @param t
      * @return
      */
-    protected abstract boolean updateData(T t);
+    protected abstract boolean update(T t);
     /**
      * 数据库删除操作
      * @param t
      * @return
      */
-    protected abstract boolean deleteData(T t);
+    protected abstract boolean delete(T t);
     /**
      * 数据库查询操作
      * @param t
      * @return
      */
-    protected abstract List<T> queryDatas(T t);
+    protected abstract List<T> queryList(T t);
 
     /**
      * 查询单个数据操作
      * @param t
      * @return
      */
-    protected abstract T queryData(T t);
+    protected abstract T query(T t);
 }

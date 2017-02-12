@@ -24,5 +24,9 @@ public @interface TableMapper {
      * @return 
      */
     String dbname() default "";
+    /**
+     * 数据库表名称，不为空
+     * @return 
+     */
     String table();
 }
