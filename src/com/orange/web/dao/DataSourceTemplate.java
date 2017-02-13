@@ -5,8 +5,6 @@
  */
 package com.orange.web.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.List;
 
 /**
@@ -20,19 +18,29 @@ public class DataSourceTemplate<T extends MapperObject> extends AbstractDataSour
     public boolean save(T t) {
         return true;
     }
-
+    
+    @Override
+    public List<Integer> saveList(List<T> t) {
+        return null;
+    }
+    
     @Override
     public boolean update(T t) {
         return true;
+    }
+    
+    @Override
+    public List<Integer> updateList(List<T> list) {
+        return null;
     }
 
     @Override
     public boolean delete(T t) {
         return true;
     }
-
+    
     @Override
-    public List<T> queryList(T t) {
+    public List<Integer> deleteList(List<T> list) {
         return null;
     }
 
@@ -41,4 +49,8 @@ public class DataSourceTemplate<T extends MapperObject> extends AbstractDataSour
         return null;
     }
     
+    @Override
+    public List<T> queryList(T t) {
+        return null;
+    }
 }
