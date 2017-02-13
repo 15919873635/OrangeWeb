@@ -12,7 +12,7 @@ package com.orange.web.parser;
 public class APIDocumentParser extends AbstractAnnotationParser{
     
     @Override
-    public void parse() {
-        
+    public Object parse() {
+        return null;
     }
 }

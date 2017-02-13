@@ -10,5 +10,5 @@ package com.orange.web.parser;
  * @author lining
  */
 public abstract class AbstractAnnotationParser implements AnnotationParser{
-    public abstract void parse();
+    public abstract Object parse();
 }
