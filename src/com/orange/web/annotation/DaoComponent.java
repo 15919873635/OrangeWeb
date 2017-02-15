@@ -21,4 +21,5 @@ import java.lang.annotation.Target;
 @Component
 public @interface DaoComponent {
     String name();
+    SingletonMode singleton() default SingletonMode.MULTITON;
 }
