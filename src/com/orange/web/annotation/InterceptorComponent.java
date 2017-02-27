@@ -26,4 +26,11 @@ public @interface InterceptorComponent {
      * @return 
      */
     String[] path();
+    /**
+     * 设置拦截器的执行顺序
+     * 当存在多个拦截器时，按照index值从小到大开始执行,index值越小越早执行。
+     * 当存在多个相同的index值时，按随机顺序执行。
+     * @return 
+     */
+    int index() default 0;
 }
