@@ -22,4 +22,5 @@ import java.lang.annotation.Target;
 public @interface ControllerComponent {
     String name();
     RequestMode type() default RequestMode.REST;
+    int index() default 0;
 }
