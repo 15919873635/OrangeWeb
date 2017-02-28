@@ -9,6 +9,6 @@ package com.orange.web.classes;
  *
  * @author lining
  */
-public abstract class AbstractClassGenerator {
+public abstract class AbstractClassGenerator implements ClassGenerator{
     
 }
