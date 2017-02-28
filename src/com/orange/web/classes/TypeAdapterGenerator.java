@@ -6,9 +6,9 @@
 package com.orange.web.classes;
 
 /**
- * 类的拆解接口
+ *
  * @author lining
  */
-public interface ClassDisassembly {
+public class TypeAdapterGenerator {
     
 }

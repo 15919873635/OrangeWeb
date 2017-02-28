@@ -9,7 +9,7 @@ package com.orange.web.classes;
  *
  * @author lining
  */
-public class ClassVisit {
+public class TypeVisit {
     /**
      * 类的最低版本
      */

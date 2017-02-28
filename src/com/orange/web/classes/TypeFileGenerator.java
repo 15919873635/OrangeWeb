@@ -9,18 +9,21 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
-import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 
 /**
  * class文件生成器
  * @author lining
  */
-public class ClassFileGenerator implements ClassGenerator{
-
+public class TypeFileGenerator implements TypeGenerator{
+    public  ClassWriter classWriter;
+    public TypeFileGenerator(ClassWriter classWriter){
+        this.classWriter = classWriter;
+    }
     @Override
-    public void generator(ClassReader classReader, ClassWriter classWriter) {
-        
+    public void generator(ClassWriter classWriter) {
+        if(classWriter != null)
+            this.classWriter = classWriter;
     }
     /**
      * 将生成的class字节数据写入到class文件中
@@ -56,7 +59,7 @@ public class ClassFileGenerator implements ClassGenerator{
      * @param classWriter
      * @return 
      */
-    public ClassWriter generatorClassHeader(ClassVisit classVisit,ClassWriter classWriter){
+    public ClassWriter generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter){
         classWriter.visit(classVisit.getVersion(), 
                         classVisit.getAccess(),
                         classVisit.getName(), 

@@ -9,6 +9,6 @@ package com.orange.web.classes;
  *
  * @author lining
  */
-public class ClassAdapterGenerator {
+public class TypeFragmentation {
     
 }
