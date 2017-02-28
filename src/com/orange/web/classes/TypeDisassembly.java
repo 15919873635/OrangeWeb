@@ -5,10 +5,13 @@
  */
 package com.orange.web.classes;
 
+import com.orange.web.classes.bean.TypeFragmentation;
+import jdk.internal.org.objectweb.asm.ClassReader;
+
 /**
- * 类的拆解接口
+ * 类的拆解类或者接口
  * @author lining
  */
 public interface TypeDisassembly {
-    
+    public TypeFragmentation dismantle(ClassReader classReader);
 }

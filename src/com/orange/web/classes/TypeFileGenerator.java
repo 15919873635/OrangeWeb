@@ -5,6 +5,10 @@
  */
 package com.orange.web.classes;
 
+import com.orange.web.classes.bean.AnnotationVisit;
+import com.orange.web.classes.bean.MethodVisit;
+import com.orange.web.classes.bean.TypeVisit;
+import com.orange.web.classes.bean.FieldVisit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
