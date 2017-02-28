@@ -8,9 +8,9 @@ package com.orange.web.classes;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassWriter;
-import jdk.internal.org.objectweb.asm.Opcodes;
 
 /**
  * class文件生成器
@@ -52,28 +52,73 @@ public class ClassFileGenerator implements ClassGenerator{
     
     /**
      * 生成类的头部信息数据
+     * @param classVisit
      * @param classWriter
      * @return 
      */
-    public ClassWriter generatorClassHeader(ClassWriter classWriter){
+    public ClassWriter generatorClassHeader(ClassVisit classVisit,ClassWriter classWriter){
+        classWriter.visit(classVisit.getVersion(), 
+                        classVisit.getAccess(),
+                        classVisit.getName(), 
+                        classVisit.getSignature(),
+                        classVisit.getSuperName(),
+                        classVisit.getInterfaces());
         return classWriter;
     }
     
     /**
      * 生成类里面的字段信息
+     * @param fieldVisits
      * @param classWriter
      * @return 
      */
-    public ClassWriter generatorFields(ClassWriter classWriter){
+    public ClassWriter generatorFields(Iterator<FieldVisit> fieldVisits, ClassWriter classWriter){
+        if(fieldVisits != null){
+            while(fieldVisits.hasNext()){
+                FieldVisit fieldVisit = fieldVisits.next();
+                classWriter.visitField(fieldVisit.getAccess(),
+                                    fieldVisit.getName(), 
+                                    fieldVisit.getDesc(), 
+                                    fieldVisit.getSignature(), 
+                                    fieldVisit.getValue());
+            }
+        }
         return classWriter;
     }
     
     /**
      * 生成类里面的方法信息
+     * @param methodVisits
      * @param classWriter
      * @return 
      */
-    public ClassWriter generatorMethods(ClassWriter classWriter){
+    public ClassWriter generatorMethods(Iterator<MethodVisit> methodVisits, ClassWriter classWriter){
+        if(methodVisits != null){
+            while(methodVisits.hasNext()){
+                MethodVisit methodVisit = methodVisits.next();
+                classWriter.visitMethod(methodVisit.getAccess(),
+                                    methodVisit.getName(), 
+                                    methodVisit.getDesc(), 
+                                    methodVisit.getSignature(), 
+                                    methodVisit.getExceptions());
+            }
+        }
+        return classWriter;
+    }
+    /**
+     * 生成类里面的注解信息
+     * @param annotationVisits
+     * @param classWriter
+     * @return 
+     */
+    public ClassWriter generatorAnnotation(Iterator<AnnotationVisit> annotationVisits, ClassWriter classWriter){
+        if(annotationVisits != null){
+            while(annotationVisits.hasNext()){
+                AnnotationVisit annotationVisit = annotationVisits.next();
+                classWriter.visitAnnotation(annotationVisit.getDesc(),
+                                    annotationVisit.isVisible());
+            }
+        }
         return classWriter;
     }
 }
