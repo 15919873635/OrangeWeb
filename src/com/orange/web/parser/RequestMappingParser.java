@@ -11,7 +11,7 @@ import com.orange.web.annotation.RequestMapping;
  *
  * @author lining
  */
-public class RequestMappingParser extends AbstractAnnotationParser<RequestMapping>{
+public final class RequestMappingParser extends AbstractAnnotationParser<RequestMapping>{
 
     @Override
     public Object parse(RequestMapping requestMapping, Object... objList) {

@@ -11,7 +11,7 @@ import com.orange.web.annotation.PathVariable;
  *
  * @author lining
  */
-public class PathVariableParser extends AbstractAnnotationParser<PathVariable>{
+public final class PathVariableParser extends AbstractAnnotationParser<PathVariable>{
 
     @Override
     public Object parse(PathVariable pathVariable, Object... objList) {

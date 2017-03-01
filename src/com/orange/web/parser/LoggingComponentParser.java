@@ -11,7 +11,7 @@ import com.orange.web.annotation.LoggingComponent;
  *
  * @author lining
  */
-public class LoggingComponentParser extends AbstractAnnotationParser<LoggingComponent>{
+public final class LoggingComponentParser extends AbstractAnnotationParser<LoggingComponent>{
 
     @Override
     public Object parse(LoggingComponent loggingComponent, Object... objList) {

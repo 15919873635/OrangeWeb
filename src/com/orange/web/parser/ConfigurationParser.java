@@ -11,7 +11,7 @@ import com.orange.web.annotation.Configuration;
  *
  * @author lining
  */
-public class ConfigurationParser extends AbstractAnnotationParser<Configuration>{
+public final class ConfigurationParser extends AbstractAnnotationParser<Configuration>{
 
     @Override
     public Object parse(Configuration configuration, Object... objList) {

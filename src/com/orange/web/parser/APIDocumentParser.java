@@ -11,7 +11,7 @@ import com.orange.web.annotation.APIDocument;
  *
  * @author lining
  */
-public class APIDocumentParser extends AbstractAnnotationParser<APIDocument>{
+public final class APIDocumentParser extends AbstractAnnotationParser<APIDocument>{
     
     @Override
     public Object parse(APIDocument apiDocument, Object... objList) {
