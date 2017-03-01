@@ -14,7 +14,7 @@ import com.orange.web.annotation.OrangeWebAnnotation;
 public class WebAnnotationParser extends AbstractAnnotationParser<OrangeWebAnnotation>{
 
     @Override
-    public Object parse(OrangeWebAnnotation webAnnotation) {
+    public Object parse(OrangeWebAnnotation webAnnotation, Object... objList) {
         return null;
     }
 }

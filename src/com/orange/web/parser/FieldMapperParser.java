@@ -14,7 +14,7 @@ import com.orange.web.annotation.FieldMapper;
 public class FieldMapperParser extends AbstractAnnotationParser<FieldMapper>{
 
     @Override
-    public Object parse(FieldMapper fieldMapper) {
+    public Object parse(FieldMapper fieldMapper, Object... objList) {
         return null;
     }
 }
