@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.PathVariable;
+
 /**
  *
  * @author lining
  */
-public class PathVariableParser extends AbstractAnnotationParser{
+public class PathVariableParser extends AbstractAnnotationParser<PathVariable>{
 
     @Override
-    public Object parse() {
+    public Object parse(PathVariable pathVariable) {
         return null;
     }
 }

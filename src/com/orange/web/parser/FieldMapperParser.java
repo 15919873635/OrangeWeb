@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.FieldMapper;
+
 /**
  *
  * @author lining
  */
-public class FieldMapperParser extends AbstractAnnotationParser{
+public class FieldMapperParser extends AbstractAnnotationParser<FieldMapper>{
 
     @Override
-    public Object parse() {
+    public Object parse(FieldMapper fieldMapper) {
         return null;
     }
 }

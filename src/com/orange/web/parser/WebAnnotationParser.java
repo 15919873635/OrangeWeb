@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.OrangeWebAnnotation;
+
 /**
  *
  * @author lining
  */
-public class WebAnnotationParser extends AbstractAnnotationParser{
+public class WebAnnotationParser extends AbstractAnnotationParser<OrangeWebAnnotation>{
 
     @Override
-    public Object parse() {
+    public Object parse(OrangeWebAnnotation webAnnotation) {
         return null;
     }
 }

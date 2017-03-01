@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.LoggingComponent;
+
 /**
  *
  * @author lining
  */
-public class LoggingComponentParser extends AbstractAnnotationParser{
+public class LoggingComponentParser extends AbstractAnnotationParser<LoggingComponent>{
 
     @Override
-    public Object parse() {
+    public Object parse(LoggingComponent loggingComponent) {
         return null;
     }
 }

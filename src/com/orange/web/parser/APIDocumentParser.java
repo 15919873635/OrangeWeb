@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.APIDocument;
+
 /**
  *
  * @author lining
  */
-public class APIDocumentParser extends AbstractAnnotationParser{
+public class APIDocumentParser extends AbstractAnnotationParser<APIDocument>{
     
     @Override
-    public Object parse() {
+    public Object parse(APIDocument apiDocument) {
         return null;
     }
 }

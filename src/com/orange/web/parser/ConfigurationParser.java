@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.Configuration;
+
 /**
  *
  * @author lining
  */
-public class ConfigurationParser extends AbstractAnnotationParser{
+public class ConfigurationParser extends AbstractAnnotationParser<Configuration>{
 
     @Override
-    public Object parse() {
+    public Object parse(Configuration configuration) {
         return null;
     }
 }

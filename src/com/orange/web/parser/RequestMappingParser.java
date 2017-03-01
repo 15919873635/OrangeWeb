@@ -5,14 +5,16 @@
  */
 package com.orange.web.parser;
 
+import com.orange.web.annotation.RequestMapping;
+
 /**
  *
  * @author lining
  */
-public class RequestMappingParser extends AbstractAnnotationParser{
+public class RequestMappingParser extends AbstractAnnotationParser<RequestMapping>{
 
     @Override
-    public Object parse() {
+    public Object parse(RequestMapping requestMapping) {
         return null;
     }
 }
