@@ -5,10 +5,13 @@
  */
 package com.orange.web.parser;
 
+import java.lang.annotation.Annotation;
+
 /**
  *
  * @author lining
+ * @param <A>
  */
-public interface AnnotationParser {
-    
+public interface AnnotationParser<A extends Annotation> {
+    public  Object parse(A annotation, Object... objList);
 }

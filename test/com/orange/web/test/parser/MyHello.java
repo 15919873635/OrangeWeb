@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.parser;
+package com.orange.web.test.parser;
 
-import java.lang.annotation.Annotation;
+import com.orange.web.annotation.APIDocument;
 
 /**
  *
  * @author lining
- * @param <A>
  */
-public abstract class AbstractAnnotationParser<A extends Annotation> implements AnnotationParser<A>{
+@APIDocument
+public class MyHello {
     
 }
