@@ -8,7 +8,7 @@ package com.orange.web.parser;
 import java.lang.annotation.Annotation;
 
 /**
- *
+ * 使用简单工厂模式生成Parser
  * @author lining
  */
 public final class SimpleParserFactory {
