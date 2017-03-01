@@ -19,6 +19,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Component
 public @interface Configuration {
     String prefix() default "";
     String location() default ""; 
