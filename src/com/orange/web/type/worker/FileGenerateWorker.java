@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.classes.worker;
+package com.orange.web.type.worker;
 
 /**
  * 文件生成的worker

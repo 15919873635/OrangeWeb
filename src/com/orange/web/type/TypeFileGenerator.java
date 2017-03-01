@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.classes;
+package com.orange.web.type;
 
-import com.orange.web.classes.bean.AnnotationVisit;
-import com.orange.web.classes.bean.MethodVisit;
-import com.orange.web.classes.bean.TypeVisit;
-import com.orange.web.classes.bean.FieldVisit;
+import com.orange.web.type.bean.AnnotationVisit;
+import com.orange.web.type.bean.MethodVisit;
+import com.orange.web.type.bean.TypeVisit;
+import com.orange.web.type.bean.FieldVisit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

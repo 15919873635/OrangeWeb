@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.classes;
+package com.orange.web.type;
+
+import jdk.internal.org.objectweb.asm.ClassWriter;
 
 /**
  *
  * @author lining
  */
-public class TypeAdapterGenerator {
-    
+public interface TypeGenerator {
+    public void generator(ClassWriter classWriter);
 }

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.classes;
+package com.orange.web.type;
 
-import com.orange.web.classes.bean.TypeFragmentation;
+import com.orange.web.type.bean.TypeFragmentation;
 import jdk.internal.org.objectweb.asm.ClassReader;
 
 /**
