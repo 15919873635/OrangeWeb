@@ -33,4 +33,9 @@ public @interface InterceptorComponent {
      * @return 
      */
     int index() default 0;
+    /**
+     * 设置该类在实例化时是单例还是多例，默认是多例
+     * @return 
+     */
+    SingletonMode singleton() default SingletonMode.MULTITON;
 }

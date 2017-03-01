@@ -20,6 +20,14 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Component
 public @interface DaoComponent {
+    /**
+     * 该dao的名称
+     * @return 
+     */
     String name();
+    /**
+     * 设置该类在实例化时是单例还是多例，默认是多例
+     * @return 
+     */
     SingletonMode singleton() default SingletonMode.MULTITON;
 }
