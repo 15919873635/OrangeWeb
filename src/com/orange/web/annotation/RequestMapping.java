@@ -22,4 +22,5 @@ public @interface RequestMapping {
     String name();
     String path();
     RequestMethod[] method() default {RequestMethod.GET};
+    ResponseType restype() default ResponseType.JSON;
 }
