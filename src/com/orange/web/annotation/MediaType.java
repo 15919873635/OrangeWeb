@@ -6,14 +6,10 @@
 package com.orange.web.annotation;
 
 /**
- * 数据返回的格式
+ * 媒体类型
  * @author lining
  */
-public enum ResponseType {
-    //原始文本格式
-    PLAIN_TEXT,
-    //JSON格式
-    JSON,
-    //XML格式
-    XML;
+public enum MediaType {
+    TEXT_PLAIN,
+    TEXT_HTML;
 }

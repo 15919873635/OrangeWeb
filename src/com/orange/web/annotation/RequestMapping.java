@@ -19,8 +19,29 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE,ElementType.METHOD})
 public @interface RequestMapping {
+    /**
+     * 请求名称
+     * @return 
+     */
     String name();
+    /**
+     * 设定的servlet 路径
+     * @return 
+     */
     String path();
+    /**
+     *  请求时的HTTP Method
+     * @return 
+     */
     RequestMethod[] method() default {RequestMethod.GET};
-    ResponseType restype() default ResponseType.JSON;
+    /**
+     * 响应时的媒体类型
+     * @return 
+     */
+    MediaType consumes() default MediaType.TEXT_HTML;
+    /**
+     * 请求时的媒体类型
+     * @return 
+     */
+    MediaType produces() default MediaType.TEXT_HTML;
 }
