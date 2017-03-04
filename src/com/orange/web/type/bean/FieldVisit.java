@@ -70,6 +70,4 @@ public class FieldVisit {
     public void setValue(Object value) {
         this.value = value;
     }
-    
-    
 }

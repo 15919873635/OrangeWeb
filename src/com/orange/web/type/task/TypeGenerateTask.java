@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.orange.web.type.generate;
+package com.orange.web.type.task;
 
 import java.util.concurrent.Callable;
 
