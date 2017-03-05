@@ -123,8 +123,19 @@ public class TypeFileGenerator implements TypeGenerator{
         if(annotationVisits != null){
             while(annotationVisits.hasNext()){
                 AnnotationVisit annotationVisit = annotationVisits.next();
-                classWriter.visitAnnotation(annotationVisit.getDesc(),
-                                    annotationVisit.isVisible());
+                if(annotationVisit != null){
+                    classWriter.visitAnnotation(annotationVisit.getDesc(),
+                                                annotationVisit.isVisible());
+                    if(annotationVisit.getPlainWrapSet() != null && !annotationVisit.getPlainWrapSet().isEmpty()){
+                        Iterator<AnnotationVisit.AnnotationPlainWrap> iterator = annotationVisit.getPlainWrapSet().iterator();
+                        while(iterator.hasNext()){
+                            AnnotationVisit.AnnotationPlainWrap plainWrap = iterator.next();
+                        }
+                    } if(annotationVisit.getEnumWrapSet() != null && !annotationVisit.getEnumWrapSet().isEmpty()){
+                    } if(annotationVisit.getAnnotationWrapSet() != null && !annotationVisit.getAnnotationWrapSet().isEmpty()){
+                    } if(annotationVisit.getArrayWrapSet() != null && !annotationVisit.getArrayWrapSet().isEmpty()){
+                    }
+                }
             }
         }
         return classWriter;
