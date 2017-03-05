@@ -23,6 +23,7 @@ public class TypeFileGenerator implements TypeGenerator{
     public  ClassWriter classWriter;
     public TypeFileGenerator(ClassWriter classWriter){
         this.classWriter = classWriter;
+
     }
     @Override
     public void generator(ClassWriter classWriter) {

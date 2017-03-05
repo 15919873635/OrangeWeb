@@ -7,8 +7,6 @@ package com.orange.web.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import jdk.internal.org.objectweb.asm.ClassReader;
-import jdk.internal.org.objectweb.asm.ClassWriter;
 
 /**
  * 生成class文件时的UTIL工具类
