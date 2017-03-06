@@ -21,8 +21,8 @@ public class ServletFileGenerateTemplate {
         TypeVisit typeVisit = new TypeVisit();
         typeVisit.setVersion(Opcodes.V1_5);
         typeVisit.setAccess(Opcodes.ACC_PUBLIC+Opcodes.ACC_FINAL);
-        typeVisit.setName("com.ln.test.Example");
-        typeVisit.setSuperName("java.lang.Object");
+        typeVisit.setName("com/ln/test/MyExample");
+        typeVisit.setSuperName("java/lang/Object");
         typeFragmentation.setTypeVisit(typeVisit);
         
     }
