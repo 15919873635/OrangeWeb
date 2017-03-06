@@ -71,7 +71,15 @@ public class TypeFileGenerator implements TypeGenerator{
         byte[] bytes = data.getBytes();
         write2File(bytes,filePath);
     }
-    
+    /**
+     * 将生成的class数据写入到class文件中
+     * @param filePath
+     * @throws IOException 
+     */
+    public void write2File(String filePath) throws IOException{
+        byte[] bytes = this.classWriter.toByteArray();
+        write2File(bytes,filePath);
+    }
     /**
      * 生成类的头部信息数据
      * @param classVisit

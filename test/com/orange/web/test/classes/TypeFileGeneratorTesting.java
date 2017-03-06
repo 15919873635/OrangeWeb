@@ -24,7 +24,7 @@ public class TypeFileGeneratorTesting {
 //        TypeFragmentation typeFragmentation = new TypeFragmentation();
         try {
             fileGenerator.generator(ServletFileGenerateTemplate.typeFragmentation, null);
-            fileGenerator.write2File(fileGenerator.getClassWriter().toByteArray(), "MyExample.class");
+            fileGenerator.write2File("MyExample.class");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
