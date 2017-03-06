@@ -5,6 +5,8 @@
  */
 package com.orange.web.type.bean;
 
+import java.util.Set;
+
 /**
  *
  * @author lining
@@ -30,6 +32,10 @@ public class MethodVisit {
      * 要抛出的异常的类名
      */
     private String[] exceptions;
+    /**
+     * 参数注解Visit聚合
+     */
+    private Set<ParamAnnotationVisit> paAnnotationSet;
 
     public int getAccess() {
         return access;
@@ -70,4 +76,13 @@ public class MethodVisit {
     public void setExceptions(String[] exceptions) {
         this.exceptions = exceptions;
     }
+
+    public Set<ParamAnnotationVisit> getPaAnnotationSet() {
+        return paAnnotationSet;
+    }
+
+    public void setPaAnnotationSet(Set<ParamAnnotationVisit> paAnnotationSet) {
+        this.paAnnotationSet = paAnnotationSet;
+    }
+    
 }

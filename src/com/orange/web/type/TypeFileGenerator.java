@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import jdk.internal.org.objectweb.asm.AnnotationVisitor;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 
 /**
@@ -124,17 +125,30 @@ public class TypeFileGenerator implements TypeGenerator{
             while(annotationVisits.hasNext()){
                 AnnotationVisit annotationVisit = annotationVisits.next();
                 if(annotationVisit != null){
-                    classWriter.visitAnnotation(annotationVisit.getDesc(),
+                    AnnotationVisitor vistor =  classWriter.visitAnnotation(annotationVisit.getDesc(),
                                                 annotationVisit.isVisible());
                     if(annotationVisit.getPlainWrapSet() != null && !annotationVisit.getPlainWrapSet().isEmpty()){
                         Iterator<AnnotationVisit.AnnotationPlainWrap> iterator = annotationVisit.getPlainWrapSet().iterator();
                         while(iterator.hasNext()){
                             AnnotationVisit.AnnotationPlainWrap plainWrap = iterator.next();
+                            vistor.visit(plainWrap.getPlainName(), plainWrap.getPlainValue());
                         }
                     } if(annotationVisit.getEnumWrapSet() != null && !annotationVisit.getEnumWrapSet().isEmpty()){
+                        Iterator<AnnotationVisit.AnnotationEnumWrap> iterator = annotationVisit.getEnumWrapSet().iterator();
+                        while(iterator.hasNext()){
+                            AnnotationVisit.AnnotationEnumWrap enumWrap = iterator.next();
+                            vistor.visitEnum(enumWrap.getEnumName(), enumWrap.getEnumDesc(), enumWrap.getEnumValue());
+                        }
                     } if(annotationVisit.getAnnotationWrapSet() != null && !annotationVisit.getAnnotationWrapSet().isEmpty()){
+                        
                     } if(annotationVisit.getArrayWrapSet() != null && !annotationVisit.getArrayWrapSet().isEmpty()){
+                        Iterator<AnnotationVisit.AnnotationArrayWrap> iterator = annotationVisit.getArrayWrapSet().iterator();
+                        while(iterator.hasNext()){
+                            AnnotationVisit.AnnotationArrayWrap arrayWrap = iterator.next();
+                            vistor.visitArray(arrayWrap.getArrayValue());
+                        }
                     }
+                    vistor.visitEnd();
                 }
             }
         }

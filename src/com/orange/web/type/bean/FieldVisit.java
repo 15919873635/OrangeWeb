@@ -5,6 +5,8 @@
  */
 package com.orange.web.type.bean;
 
+import java.util.Set;
+
 /**
  *
  * @author lining
@@ -30,6 +32,10 @@ public class FieldVisit {
      * 字段的默认值
      */
     private Object value;
+    /**
+     * 注释Visit的聚合
+     */
+    private Set<AnnotationVisit> annotationSet;
 
     public int getAccess() {
         return access;
@@ -70,4 +76,13 @@ public class FieldVisit {
     public void setValue(Object value) {
         this.value = value;
     }
+
+    public Set<AnnotationVisit> getAnnotationSet() {
+        return annotationSet;
+    }
+
+    public void setAnnotationSet(Set<AnnotationVisit> annotationSet) {
+        this.annotationSet = annotationSet;
+    }
+    
 }

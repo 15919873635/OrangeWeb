@@ -20,13 +20,21 @@ public class AnnotationVisit {
      * 如果注解在运行时可见，则返回true
      */
     private boolean visible;
-    
+    /**
+     * 原生类型的包裹类集合
+     */
     private Set<AnnotationPlainWrap> plainWrapSet;
-    
+    /**
+     * 枚举类型的包裹类聚合
+     */
     private Set<AnnotationEnumWrap> enumWrapSet;
-    
+    /**
+     * 注解类型的包裹类聚合
+     */
     private Set<AnnotationAnnotationWrap> annotationWrapSet;
-    
+    /**
+     * 阵列类型的包裹类聚合
+     */
     private Set<AnnotationArrayWrap> arrayWrapSet;
     
     public String getDesc() {
@@ -160,7 +168,6 @@ public class AnnotationVisit {
         public void setArrayValue(String arrayValue) {
             this.arrayValue = arrayValue;
         }
-        
     }
 }
 
