@@ -10,6 +10,8 @@ import com.orange.web.type.bean.MethodVisit;
 import com.orange.web.type.bean.TypeVisit;
 import com.orange.web.type.bean.FieldVisit;
 import com.orange.web.type.bean.TypeFragmentation;
+import com.orange.web.util.ClassGeneratorUtil;
+import com.orange.web.util.StringUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,10 +28,15 @@ public class TypeFileGenerator implements TypeGenerator{
     public  ClassWriter classWriter;
     public TypeFileGenerator(ClassWriter classWriter){
         this.classWriter = classWriter;
-
+    }
+    public TypeFileGenerator(){
+        this.classWriter = new ClassWriter(0);
+    }
+    public void generator(TypeFragmentation typeFragmentation) throws Exception{
+        generator(typeFragmentation, null);
     }
     @Override
-    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter) {
+    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter) throws Exception{
         if(classWriter != null)
             this.classWriter = classWriter;
         if(typeFragmentation != null){
@@ -71,14 +78,32 @@ public class TypeFileGenerator implements TypeGenerator{
      * 生成类的头部信息数据
      * @param classVisit
      * @param classWriter
+     * @throws java.lang.ClassNotFoundException
      */
-    public void generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter){
-        classWriter.visit(classVisit.getVersion(), 
-                        classVisit.getAccess(),
-                        classVisit.getName(), 
-                        classVisit.getSignature(),
-                        classVisit.getSuperName(),
-                        classVisit.getInterfaces());
+    public void generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter) throws ClassNotFoundException{
+        if(classVisit != null){
+            String superName = null;
+            String[] interfaces = null;
+            if(!StringUtil.isEmpty(classVisit.getSuperName()))
+                superName = ClassGeneratorUtil.getTypeDescriptor(classVisit.getSuperName());
+            if(classVisit.getInterfaces() != null && classVisit.getInterfaces().length > 0){
+                interfaces = new String[]{};
+                int count = 0 ;
+                for(String interfaceDescriptor : interfaces){
+                    interfaceDescriptor = StringUtil.isEmpty(interfaceDescriptor) ? null : ClassGeneratorUtil.getTypeDescriptor(interfaceDescriptor);
+                    if(interfaceDescriptor != null && interfaceDescriptor.length() > 0){
+                        interfaces[count] = interfaceDescriptor;
+                        count += 1;
+                    }   
+                }
+            }
+            classWriter.visit(classVisit.getVersion(), 
+                            classVisit.getAccess(),
+                            classVisit.getName(), 
+                            classVisit.getSignature(),
+                            superName,
+                            interfaces);
+        }    
     }
     
     /**
@@ -160,5 +185,13 @@ public class TypeFileGenerator implements TypeGenerator{
                 }
             }
         }
+    }
+
+    public ClassWriter getClassWriter() {
+        return classWriter;
+    }
+
+    public void setClassWriter(ClassWriter classWriter) {
+        this.classWriter = classWriter;
     }
 }

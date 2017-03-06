@@ -7,6 +7,8 @@ package com.orange.web.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import jdk.internal.org.objectweb.asm.Opcodes;
+import jdk.internal.org.objectweb.asm.Type;
 
 /**
  * 生成class文件时的UTIL工具类
@@ -51,5 +53,42 @@ public class ClassGeneratorUtil {
             }
         }
         return inObj;
+    }
+    
+    public static String getTypeDescriptor(String name) throws ClassNotFoundException{
+        String descriptor = null;
+        if(name != null && name.length() > 0){
+            switch(name){
+                case "java.lang.Integer" :
+                    descriptor = Type.INT_TYPE.getDescriptor();
+                    break;
+                case "java.lang.Long" : 
+                    descriptor = Type.LONG_TYPE.getDescriptor();
+                    break;
+                case "java.lang.Float" : 
+                    descriptor = Type.FLOAT_TYPE.getDescriptor();
+                    break;      
+                case "java.lang.Double" : 
+                    descriptor = Type.DOUBLE_TYPE.getDescriptor();
+                    break;
+                case "java.lang.Short" : 
+                    descriptor = Type.SHORT_TYPE.getDescriptor();
+                    break;
+                case "java.lang.Boolean" : 
+                    descriptor = Type.BOOLEAN_TYPE.getDescriptor();
+                    break;  
+                case "java.lang.Byte" : 
+                    descriptor = Type.BYTE_TYPE.getDescriptor();
+                    break;     
+                case "java.lang.Chart" : 
+                    descriptor = Type.CHAR_TYPE.getDescriptor();
+                    break;  
+                default :
+                    Class<?> classzz = Class.forName(name);
+                    descriptor = "L"+classzz.getName();
+                    break;
+            }
+        }
+        return descriptor;
     }
 }

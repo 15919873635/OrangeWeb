@@ -13,5 +13,5 @@ import jdk.internal.org.objectweb.asm.ClassWriter;
  * @author lining
  */
 public interface TypeGenerator {
-    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter);
+    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter) throws Exception;
 }
