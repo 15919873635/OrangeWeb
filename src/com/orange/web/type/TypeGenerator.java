@@ -5,6 +5,7 @@
  */
 package com.orange.web.type;
 
+import com.orange.web.type.bean.TypeFragmentation;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 
 /**
@@ -12,5 +13,5 @@ import jdk.internal.org.objectweb.asm.ClassWriter;
  * @author lining
  */
 public interface TypeGenerator {
-    public void generator(ClassWriter classWriter);
+    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter);
 }

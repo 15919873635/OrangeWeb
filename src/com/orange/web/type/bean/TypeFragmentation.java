@@ -5,23 +5,25 @@
  */
 package com.orange.web.type.bean;
 
+import java.util.Iterator;
+
 /**
  *
  * @author lining
  */
 public class TypeFragmentation {
-    private AnnotationVisit annotationVisit;
+    private Iterator<AnnotationVisit> annotationVisit;
     private TypeVisit typeVisit;
-    private FieldVisit fieldVisit;
-    private MethodVisit methodVisit;
+    private Iterator<FieldVisit> fieldVisit;
+    private Iterator<MethodVisit> methodVisit;
     private InnerClassVisit innerClassVisit;
     private OuterClassVisit outerClassVisit;
 
-    public AnnotationVisit getAnnotationVisit() {
+    public Iterator<AnnotationVisit> getAnnotationVisit() {
         return annotationVisit;
     }
 
-    public void setAnnotationVisit(AnnotationVisit annotationVisit) {
+    public void setAnnotationVisit(Iterator<AnnotationVisit> annotationVisit) {
         this.annotationVisit = annotationVisit;
     }
 
@@ -33,19 +35,19 @@ public class TypeFragmentation {
         this.typeVisit = typeVisit;
     }
 
-    public FieldVisit getFieldVisit() {
+    public Iterator<FieldVisit> getFieldVisit() {
         return fieldVisit;
     }
 
-    public void setFieldVisit(FieldVisit fieldVisit) {
+    public void setFieldVisit(Iterator<FieldVisit> fieldVisit) {
         this.fieldVisit = fieldVisit;
     }
 
-    public MethodVisit getMethodVisit() {
+    public Iterator<MethodVisit> getMethodVisit() {
         return methodVisit;
     }
 
-    public void setMethodVisit(MethodVisit methodVisit) {
+    public void setMethodVisit(Iterator<MethodVisit> methodVisit) {
         this.methodVisit = methodVisit;
     }
 

@@ -9,12 +9,14 @@ import com.orange.web.type.bean.AnnotationVisit;
 import com.orange.web.type.bean.MethodVisit;
 import com.orange.web.type.bean.TypeVisit;
 import com.orange.web.type.bean.FieldVisit;
+import com.orange.web.type.bean.TypeFragmentation;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import jdk.internal.org.objectweb.asm.AnnotationVisitor;
 import jdk.internal.org.objectweb.asm.ClassWriter;
+import jdk.internal.org.objectweb.asm.FieldVisitor;
 
 /**
  * class文件生成器
@@ -27,9 +29,15 @@ public class TypeFileGenerator implements TypeGenerator{
 
     }
     @Override
-    public void generator(ClassWriter classWriter) {
+    public void generator(TypeFragmentation typeFragmentation, ClassWriter classWriter) {
         if(classWriter != null)
             this.classWriter = classWriter;
+        if(typeFragmentation != null){
+            generatorClassHeader(typeFragmentation.getTypeVisit(),this.classWriter);
+            generatorAnnotation(typeFragmentation.getAnnotationVisit(), this.classWriter);
+            generatorFields(typeFragmentation.getFieldVisit(),this.classWriter);
+            generatorMethods(typeFragmentation.getMethodVisit(), this.classWriter);
+        }
     }
     /**
      * 将生成的class字节数据写入到class文件中
@@ -63,64 +71,64 @@ public class TypeFileGenerator implements TypeGenerator{
      * 生成类的头部信息数据
      * @param classVisit
      * @param classWriter
-     * @return 
      */
-    public ClassWriter generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter){
+    public void generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter){
         classWriter.visit(classVisit.getVersion(), 
                         classVisit.getAccess(),
                         classVisit.getName(), 
                         classVisit.getSignature(),
                         classVisit.getSuperName(),
                         classVisit.getInterfaces());
-        return classWriter;
     }
     
     /**
      * 生成类里面的字段信息
      * @param fieldVisits
      * @param classWriter
-     * @return 
      */
-    public ClassWriter generatorFields(Iterator<FieldVisit> fieldVisits, ClassWriter classWriter){
+    public void generatorFields(Iterator<FieldVisit> fieldVisits, ClassWriter classWriter){
         if(fieldVisits != null){
             while(fieldVisits.hasNext()){
                 FieldVisit fieldVisit = fieldVisits.next();
-                classWriter.visitField(fieldVisit.getAccess(),
+                if(fieldVisit != null){
+                    FieldVisitor visitor = classWriter.visitField(fieldVisit.getAccess(),
                                     fieldVisit.getName(), 
                                     fieldVisit.getDesc(), 
                                     fieldVisit.getSignature(), 
                                     fieldVisit.getValue());
+                    if(fieldVisit.getAnnotationSet() != null && !fieldVisit.getAnnotationSet().isEmpty())
+                        generatorAnnotation(fieldVisit.getAnnotationSet().iterator(),classWriter);
+                    visitor.visitEnd();
+                }
             }
         }
-        return classWriter;
     }
     
     /**
      * 生成类里面的方法信息
      * @param methodVisits
      * @param classWriter
-     * @return 
      */
-    public ClassWriter generatorMethods(Iterator<MethodVisit> methodVisits, ClassWriter classWriter){
+    public void generatorMethods(Iterator<MethodVisit> methodVisits, ClassWriter classWriter){
         if(methodVisits != null){
             while(methodVisits.hasNext()){
                 MethodVisit methodVisit = methodVisits.next();
-                classWriter.visitMethod(methodVisit.getAccess(),
+                if(methodVisit != null){
+                    classWriter.visitMethod(methodVisit.getAccess(),
                                     methodVisit.getName(), 
                                     methodVisit.getDesc(), 
                                     methodVisit.getSignature(), 
                                     methodVisit.getExceptions());
+                }
             }
         }
-        return classWriter;
     }
     /**
      * 生成类里面的注解信息
      * @param annotationVisits
      * @param classWriter
-     * @return 
      */
-    public ClassWriter generatorAnnotation(Iterator<AnnotationVisit> annotationVisits, ClassWriter classWriter){
+    public void generatorAnnotation(Iterator<AnnotationVisit> annotationVisits, ClassWriter classWriter){
         if(annotationVisits != null){
             while(annotationVisits.hasNext()){
                 AnnotationVisit annotationVisit = annotationVisits.next();
@@ -152,6 +160,5 @@ public class TypeFileGenerator implements TypeGenerator{
                 }
             }
         }
-        return classWriter;
     }
 }
