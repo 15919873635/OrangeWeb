@@ -22,13 +22,12 @@ import jdk.internal.org.objectweb.asm.Opcodes;
  * @author lining
  */
 public class TypeFileDisassembly extends ClassVisitor implements TypeDisassembly{
-    private final TypeFragmentation typeFragmentation;
+    private final TypeFragmentation typeFragmentation = new TypeFragmentation();
     private final TypeVisit typeVisit = new TypeVisit();
     private final Set<FieldVisit> fieldVisitSet = new HashSet<>();
     private final Set<MethodVisit> methodVisitSet = new HashSet<>();
     public  TypeFileDisassembly(){
         super(Opcodes.ASM4);
-        typeFragmentation = new TypeFragmentation();
     }
     @Override
     public void visit(int i, int i1, String string, String string1, String string2, String[] strings){
