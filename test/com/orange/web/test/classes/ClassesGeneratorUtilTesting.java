@@ -17,5 +17,7 @@ public class ClassesGeneratorUtilTesting {
         System.out.println(result);
         boolean result22 = ClassGeneratorUtil.fieldInClass(MyClassGeneratorDemoClass.class,"hello"); 
         System.out.println(result22);
+        
+        System.out.println(ClassGeneratorUtil.transform2PackageName("com.ln.test/demo"));
     }
 }

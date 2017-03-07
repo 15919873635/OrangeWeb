@@ -54,7 +54,12 @@ public class ClassGeneratorUtil {
         }
         return inObj;
     }
-    
+    /**
+     * 根据类型名获取asm的类型名
+     * @param name
+     * @return
+     * @throws ClassNotFoundException 
+     */
     public static String getTypeDescriptor(String name) throws ClassNotFoundException{
         String descriptor = null;
         if(name != null && name.length() > 0){
@@ -85,10 +90,18 @@ public class ClassGeneratorUtil {
                     break;  
                 default :
                     Class<?> classzz = Class.forName(name);
-                    descriptor = "L"+classzz.getName();
+                    descriptor = "L"+classzz.getName()+";";
                     break;
             }
         }
         return descriptor;
+    }
+    /**
+     * 将带有.好的包名转换为/的包名
+     * @param namespace
+     * @return 
+     */
+    public static String transform2PackageName(String namespace){
+        return namespace.replaceAll("[.]", "/");
     }
 }

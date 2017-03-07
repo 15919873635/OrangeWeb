@@ -10,6 +10,8 @@ import com.orange.web.type.bean.MethodVisit;
 import com.orange.web.type.bean.TypeVisit;
 import com.orange.web.type.bean.FieldVisit;
 import com.orange.web.type.bean.TypeFragmentation;
+import com.orange.web.util.ClassGeneratorUtil;
+import com.orange.web.util.StringUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -88,12 +90,30 @@ public class TypeFileGenerator implements TypeGenerator{
      */
     public void generatorClassHeader(TypeVisit classVisit,ClassWriter classWriter) throws ClassNotFoundException{
         if(classVisit != null){
+            String name = classVisit.getName();
+            String superName = classVisit.getSuperName();
+            String[] interfaces = null;
+            if(!StringUtil.isEmpty(name))
+                name = ClassGeneratorUtil.transform2PackageName(name);
+            if(!StringUtil.isEmpty(superName))
+                superName = ClassGeneratorUtil.transform2PackageName(superName);
+            if(classVisit.getInterfaces() != null && classVisit.getInterfaces().length > 0){
+                interfaces = new String[]{};
+                int count = 0;
+                for(String interName : classVisit.getInterfaces()){
+                    if(!StringUtil.isEmpty(interName)){
+                        interName = ClassGeneratorUtil.transform2PackageName(superName);
+                        interfaces[count] = interName;
+                        count += 1;
+                    }
+                }
+            }
             classWriter.visit(classVisit.getVersion(), 
                             classVisit.getAccess(),
-                            classVisit.getName(), 
+                            name, 
                             classVisit.getSignature(),
-                            classVisit.getSuperName(),
-                            classVisit.getInterfaces());
+                            superName,
+                            interfaces);
         }    
     }
     
