@@ -9,16 +9,20 @@ import com.orange.web.type.bean.AnnotationVisit;
 import com.orange.web.type.bean.MethodVisit;
 import com.orange.web.type.bean.TypeVisit;
 import com.orange.web.type.bean.FieldVisit;
+import com.orange.web.type.bean.ParamAnnotationVisit;
 import com.orange.web.type.bean.TypeFragmentation;
 import com.orange.web.util.ClassGeneratorUtil;
 import com.orange.web.util.StringUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import jdk.internal.org.objectweb.asm.AnnotationVisitor;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.FieldVisitor;
+import jdk.internal.org.objectweb.asm.MethodVisitor;
 
 /**
  * class文件生成器
@@ -122,14 +126,17 @@ public class TypeFileGenerator implements TypeGenerator{
      * @param fieldVisits
      * @param classWriter
      */
-    public void generatorFields(Iterator<FieldVisit> fieldVisits, ClassWriter classWriter){
+    public void generatorFields(Iterator<FieldVisit> fieldVisits, ClassWriter classWriter) throws ClassNotFoundException{
         if(fieldVisits != null){
             while(fieldVisits.hasNext()){
                 FieldVisit fieldVisit = fieldVisits.next();
                 if(fieldVisit != null){
+                    String fieldDesc = fieldVisit.getDesc();
+                    if(!StringUtil.isEmpty(fieldDesc))
+                        fieldDesc = ClassGeneratorUtil.getTypeDescriptor(fieldDesc);
                     FieldVisitor visitor = classWriter.visitField(fieldVisit.getAccess(),
                                     fieldVisit.getName(), 
-                                    fieldVisit.getDesc(), 
+                                    fieldDesc, 
                                     fieldVisit.getSignature(), 
                                     fieldVisit.getValue());
                     if(fieldVisit.getAnnotationSet() != null && !fieldVisit.getAnnotationSet().isEmpty())
@@ -145,16 +152,29 @@ public class TypeFileGenerator implements TypeGenerator{
      * @param methodVisits
      * @param classWriter
      */
-    public void generatorMethods(Iterator<MethodVisit> methodVisits, ClassWriter classWriter){
+    public void generatorMethods(Iterator<MethodVisit> methodVisits, ClassWriter classWriter) throws ClassNotFoundException{
         if(methodVisits != null){
             while(methodVisits.hasNext()){
                 MethodVisit methodVisit = methodVisits.next();
                 if(methodVisit != null){
-                    classWriter.visitMethod(methodVisit.getAccess(),
+                    MethodVisitor methodVisitor =  classWriter.visitMethod(methodVisit.getAccess(),
                                     methodVisit.getName(), 
                                     methodVisit.getDesc(), 
                                     methodVisit.getSignature(), 
                                     methodVisit.getExceptions());
+                    if(methodVisit.getPaAnnotationSet() != null && methodVisit.getPaAnnotationSet().size() > 0){
+                        Iterator<ParamAnnotationVisit> it = methodVisit.getPaAnnotationSet().iterator();
+                        while(it.hasNext()){
+                            ParamAnnotationVisit paAnnotationVisit = it.next();
+                            AnnotationVisit anVisit = paAnnotationVisit.getAnnotationVisit();
+                            if(anVisit != null){
+                                Set<AnnotationVisit> anSet = new HashSet<AnnotationVisit>();
+                                anSet.add(anVisit);
+                                methodVisitor.visitParameterAnnotation(paAnnotationVisit.getParameter(), paAnnotationVisit.getAnnotationVisit().getDesc(), true);
+                                generatorAnnotation(anSet.iterator(), classWriter);
+                            }
+                        }
+                    }
                 }
             }
         }
