@@ -105,6 +105,7 @@ public class WebContextUtil {
                     list.add(result);
                 }
                 while(true){
+                    System.out.println(list.size());
                     if(list.size() == classZZList.size())
                         break;
                 }

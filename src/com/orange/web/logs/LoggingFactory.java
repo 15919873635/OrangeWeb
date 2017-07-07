@@ -14,5 +14,4 @@ public class LoggingFactory {
     public static Logging getLogging(Class<?> classzz) {
         return AbstractLoggingFactory.builder().getLogging(classzz);
     }
-    
 }

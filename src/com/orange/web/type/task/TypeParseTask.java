@@ -7,11 +7,9 @@ package com.orange.web.type.task;
 
 import com.orange.web.annotation.ControllerComponent;
 import com.orange.web.annotation.DaoComponent;
-import com.orange.web.annotation.RequestMapping;
 import com.orange.web.annotation.ServiceComponent;
 import com.orange.web.parser.ControllerComponentParser;
 import com.orange.web.parser.DaoComponentParser;
-import com.orange.web.parser.RequestMappingParser;
 import com.orange.web.parser.ServiceComponentParser;
 import com.orange.web.parser.SimpleParserFactory;
 import java.util.concurrent.Callable;
@@ -45,7 +43,6 @@ public class TypeParseTask {
         }
         @Override
         public Boolean call() throws Exception {
-
             ServiceComponent serviceComponent = thisClass.getAnnotation(ServiceComponent.class);
             ServiceComponentParser serviceComponentParser = (ServiceComponentParser)SimpleParserFactory.getParser(serviceComponent);
             serviceComponentParser.parse(serviceComponent, thisClass);

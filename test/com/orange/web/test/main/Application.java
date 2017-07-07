@@ -10,9 +10,9 @@ import com.orange.web.annotation.OrangeWebAnnotation;
 
 /**
  *
- * @author Administrator
+ * @author lining
  */
-@OrangeWebAnnotation(scanBasePackage = "com.orange.web.test")
+@OrangeWebAnnotation(scanBasePackage = {"com.orange.web.test"})
 public class Application {
 
     /**
