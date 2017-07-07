@@ -15,6 +15,10 @@ public class ServiceComponentParser extends AbstractAnnotationParser<ServiceComp
 
     @Override
     public Object parse(ServiceComponent annotation, Object... objList) {
+        if(objList[0] instanceof Class<?>){
+            Class<?> objClass = (Class<?>)objList[0];
+            return objList[0];
+        }
         return null;
     }
 }

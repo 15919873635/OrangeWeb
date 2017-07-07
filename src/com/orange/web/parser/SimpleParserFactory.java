@@ -33,8 +33,14 @@ public final class SimpleParserFactory {
             case "com.orange.web.annotation.RequestMapping" :
                 parser = new RequestMappingParser();
                 break;
+            case "com.orange.web.annotation.DaoComponent" :
+                parser = new DaoComponentParser();
+                break;
             case "com.orange.web.annotation.ServiceComponent" :
                 parser = new ServiceComponentParser();
+                break;
+            case "com.orange.web.annotation.ControllerComponent" :
+                parser = new ControllerComponentParser();
                 break;
             case "com.orange.web.annotation.OrangeWebAnnotation" :
                 parser = new WebAnnotationParser();

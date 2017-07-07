@@ -5,9 +5,11 @@
  */
 package com.orange.web.type.task;
 
+import com.orange.web.annotation.ControllerComponent;
 import com.orange.web.annotation.DaoComponent;
 import com.orange.web.annotation.RequestMapping;
 import com.orange.web.annotation.ServiceComponent;
+import com.orange.web.parser.ControllerComponentParser;
 import com.orange.web.parser.DaoComponentParser;
 import com.orange.web.parser.RequestMappingParser;
 import com.orange.web.parser.ServiceComponentParser;
@@ -51,18 +53,17 @@ public class TypeParseTask {
         }
     }
     
-    public class RequestMappingParseTask implements Callable<Boolean>{
+    public class ControllerComponentParseTask implements Callable<Boolean>{
         private Class<?> thisClass;
 
-        public RequestMappingParseTask(Class<?> thisClass){
+        public ControllerComponentParseTask(Class<?> thisClass){
             this.thisClass = thisClass;
         }
         @Override
         public Boolean call() throws Exception {
-
-            RequestMapping requestMapping = thisClass.getAnnotation(RequestMapping.class);
-            RequestMappingParser requestMappingParser = (RequestMappingParser)SimpleParserFactory.getParser(requestMapping);
-            requestMappingParser.parse(requestMapping, thisClass);
+            ControllerComponent controllerComponent = thisClass.getAnnotation(ControllerComponent.class);
+            ControllerComponentParser controllerComponentParser = (ControllerComponentParser)SimpleParserFactory.getParser(controllerComponent);
+            controllerComponentParser.parse(controllerComponent, thisClass);
             return true;
         }
     }
