@@ -5,12 +5,20 @@
  */
 package com.orange.web;
 
+import com.orange.web.annotation.OrangeWebAnnotation;
+import com.orange.web.parser.SimpleParserFactory;
+import com.orange.web.parser.WebAnnotationParser;
+
 /**
  *
  * @author lining
  */
 public class WebApplication {
     public static void run(Class<?> classzz,String[] args){
-        
+        OrangeWebAnnotation webAnnotation = classzz.getAnnotation(OrangeWebAnnotation.class);
+        if(webAnnotation != null){
+            WebAnnotationParser webAnnotationParser = (WebAnnotationParser)SimpleParserFactory.getParser(webAnnotation);
+            webAnnotationParser.parse(webAnnotation, classzz);
+        }
     };
 }

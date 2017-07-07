@@ -5,6 +5,8 @@
  */
 package com.orange.web.parser;
 
+import static com.orange.web.parser.AnnotationParser.ORANGE_PACK;
+import com.orange.web.util.CommonUtil;
 import java.lang.annotation.Annotation;
 
 /**
@@ -13,5 +15,14 @@ import java.lang.annotation.Annotation;
  * @param <A>
  */
 public abstract class AbstractAnnotationParser<A extends Annotation> implements AnnotationParser<A>{
-    
+    protected boolean checkOrangePack(String[] packs){
+        boolean hasOrangePack = false;
+        for(String basePack : packs){
+            if(!basePack.contains(ORANGE_PACK)){
+                hasOrangePack = true;
+                break;
+            }
+        }
+        return hasOrangePack;
+    }
 }

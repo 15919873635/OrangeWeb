@@ -5,15 +5,16 @@
  */
 package com.orange.web.parser;
 
-import java.lang.annotation.Annotation;
+import com.orange.web.annotation.ServiceComponent;
 
 /**
  *
  * @author lining
- * @param <A>
  */
-public interface AnnotationParser<A extends Annotation> {
-    public static final String ORANGE_PACK = "com.orange.web";
-    
-    public  Object parse(A annotation, Object... objList);
+public class ServiceComponentParser extends AbstractAnnotationParser<ServiceComponent>{
+
+    @Override
+    public Object parse(ServiceComponent annotation, Object... objList) {
+        return null;
+    }
 }

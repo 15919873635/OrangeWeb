@@ -15,6 +15,9 @@ public final class RequestMappingParser extends AbstractAnnotationParser<Request
 
     @Override
     public Object parse(RequestMapping requestMapping, Object... objList) {
-        return null;
+        if(objList[0] instanceof Class<?>){
+            Class<?> objClass = (Class<?>)objList[0];
+        }
+        return objList[0];
     }
 }

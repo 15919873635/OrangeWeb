@@ -13,15 +13,35 @@ import java.lang.annotation.Annotation;
  */
 public final class SimpleParserFactory {
     public static <A extends Annotation> AnnotationParser getParser(A annotation){
+        AnnotationParser parser = null;
         switch(annotation.annotationType().getName()){
-            case "com.orange.web.annotation.APIDocument": return new APIDocumentParser();
-            case "com.orange.web.annotation.Configuration" : return new ConfigurationParser();
-            case "com.orange.web.annotation.FieldMapper" : return new FieldMapperParser();
-            case "com.orange.web.annotation.LoggingComponent" : return new FieldMapperParser();
-            case "com.orange.web.annotation.PathVariable" : return new PathVariableParser();
-            case "com.orange.web.annotation.RequestMapping" : return new RequestMappingParser();
-            case "com.orange.web.annotation.OrangeWebAnnotation" : return new WebAnnotationParser();
-            default:return null;
+            case "com.orange.web.annotation.APIDocument": 
+                parser =  new APIDocumentParser();
+                break;
+            case "com.orange.web.annotation.Configuration" : 
+                parser = new ConfigurationParser();
+                break;
+            case "com.orange.web.annotation.FieldMapper" :
+                parser = new FieldMapperParser();
+                break;
+            case "com.orange.web.annotation.LoggingComponent" :
+                parser = new FieldMapperParser();
+                break;
+            case "com.orange.web.annotation.PathVariable" :
+                parser = new PathVariableParser();
+                break;
+            case "com.orange.web.annotation.RequestMapping" :
+                parser = new RequestMappingParser();
+                break;
+            case "com.orange.web.annotation.ServiceComponent" :
+                parser = new ServiceComponentParser();
+                break;
+            case "com.orange.web.annotation.OrangeWebAnnotation" :
+                parser = new WebAnnotationParser();
+                break;
+            default:
+                break;
         }
+        return parser;
     }; 
 }
