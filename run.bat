@@ -1,1 +1,1 @@
-
+java -Djava.ext.dirs=lib -cp .\bin com.orange.web.Application -start
