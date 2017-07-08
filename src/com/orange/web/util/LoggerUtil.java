@@ -9,6 +9,6 @@ package com.orange.web.util;
  * 日志模块的UTIL工具类
  * @author lining
  */
-public class LoggingUtil {
+public class LoggerUtil {
     
 }
