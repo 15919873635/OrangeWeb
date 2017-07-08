@@ -9,9 +9,9 @@ package com.orange.web.logs;
  *
  * @author lining
  */
-public class LoggingFactory {
+public class LoggerFactory {
 
-    public static Logging getLogging(Class<?> classzz) {
-        return AbstractLoggingFactory.builder().getLogging(classzz);
+    public static Logger getLogging(Class<?> classzz) {
+        return AbstractLoggerFactory.builder().getLogging(classzz);
     }
 }

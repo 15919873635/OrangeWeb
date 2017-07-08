@@ -5,23 +5,15 @@
  */
 package com.orange.web.logs;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author lining
  */
-public class Logging extends AbstractLogging{
+public class Logger extends AbstractLogger{
     
     @Override
     public void debug(String debugStr) {
-        try {
-            super.writeLoggingFile(debugStr);
-        } catch (IOException ex) {
-            Logger.getLogger(Logging.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
-        }
+        
     }
 
     @Override

@@ -13,11 +13,11 @@ import java.io.File;
  *
  * @author lining
  */
-public class AbstractLoggingFactory implements DefaultLoggingFactory{
+public class AbstractLoggerFactory implements DefaultLoggerFactory{
     
     @Override
-    public Logging getLogging(Class<?> classzz){
-        Logging log = new Logging();
+    public Logger getLogging(Class<?> classzz){
+        Logger log = new Logger();
         LoggingComponent loggingAnnotation = classzz.getAnnotation(LoggingComponent.class);
         if(loggingAnnotation != null){
             if(!StringUtil.isEmpty(loggingAnnotation.filePath())){
@@ -30,7 +30,7 @@ public class AbstractLoggingFactory implements DefaultLoggingFactory{
         return log;
     }
     
-    public static AbstractLoggingFactory builder(){
-        return new AbstractLoggingFactory();
+    public static AbstractLoggerFactory builder(){
+        return new AbstractLoggerFactory();
     }
 }

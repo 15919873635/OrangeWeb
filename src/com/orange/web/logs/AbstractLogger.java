@@ -17,7 +17,7 @@ import java.io.RandomAccessFile;
  *
  * @author lining
  */
-public abstract class AbstractLogging {
+public abstract class AbstractLogger {
     protected File loggingFile;
     protected LoggingLevel[] loggingLevels;
     protected String loggingFormat;
