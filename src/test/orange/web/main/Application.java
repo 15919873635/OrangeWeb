@@ -12,7 +12,7 @@ import com.orange.web.annotation.OrangeWebAnnotation;
  *
  * @author lining
  */
-@OrangeWebAnnotation(scanBasePackage = {"com.orange.web.test"})
+@OrangeWebAnnotation(scanBasePackage = {"test.orange.web"})
 public class Application {
 
     /**

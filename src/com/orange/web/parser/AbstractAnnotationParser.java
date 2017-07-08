@@ -16,7 +16,7 @@ public abstract class AbstractAnnotationParser<A extends Annotation> implements 
     protected boolean checkOrangePack(String[] packs){
         boolean hasOrangePack = false;
         for(String basePack : packs){
-            if(!basePack.contains(ORANGE_PACK)){
+            if(basePack.contains(ORANGE_PACK)){
                 hasOrangePack = true;
                 break;
             }
