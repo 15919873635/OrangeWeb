@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_65"/>
+	<classpathentry kind="lib" path="lib/cdi-core-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/cdi-servlet-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/cdi-websocket-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/fastjson-1.2.7.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-annotations-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-http-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-io-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-jmx-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-schemas-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-security-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-server-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-servlet-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-servlets-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-util-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-xml-9.3.15.v20161220.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api-3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
