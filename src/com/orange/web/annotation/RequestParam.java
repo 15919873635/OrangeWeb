@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.PARAMETER)
 @Inherited
 public @interface RequestParam {
-
+	String name() default "";
 }
