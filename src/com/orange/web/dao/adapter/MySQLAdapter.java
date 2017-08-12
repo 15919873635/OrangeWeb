@@ -7,7 +7,7 @@ package com.orange.web.dao.adapter;
 
 /**
  *
- * @author Administrator
+ * @author lining
  */
 public class MySQLAdapter {
     
